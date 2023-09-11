@@ -62,6 +62,6 @@ class ProductTest < ActiveSupport::TestCase
                           price:        1,
                           image_url:    "fred.gif")
     assert product.invalid?
-    assert_equal [I18n.translate('errors.messages.taken'), product.errors[:title]
+    assert_equal [I18n.translate('errors.messages.taken')], product.errors[:title]
   end
 end
