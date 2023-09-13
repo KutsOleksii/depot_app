@@ -1,24 +1,68 @@
 require 'rails_helper'
 
-RSpec.describe Product, type: :model do
+RSpec.describe ProductsController, type: :controller do
   fixtures :products
 
-  # Define the new_product method within the test block
-  def new_product(image_url)
-    Product.new(title: "My book Title", description: "yyy", price: 1, image_url: image_url)
+  before do
+    @product = products(:one)
+    @title = "The Great Book #{rand(1000)}"
   end
 
-  it 'validates image url' do
-    ok = %w{fred.gif fred.jpg fred.png FRED.JPG FRED.Jpg http://a.b.c/x/y/z/fred.gif}
-    bad = %w{fred.doc fred.gif/more fred.gif.more}
+  it 'should get index' do
+    get :index
+    expect(response).to have_http_status(:success)
+  end
 
-    ok.each do |image_url|
-      expect(new_product(image_url)).to be_valid, "#{image_url} must be valid"
-    end
+  it 'should get new' do
+    get :new
+    expect(response).to have_http_status(:success)
+  end
 
-    bad.each do |image_url|
-      expect(new_product(image_url)).to be_invalid, "#{image_url} must be invalid"
-    end
+  it 'should create product' do
+    expect {
+      post :create, params: {
+        product: {
+          description: @product.description,
+          image_url: @product.image_url,
+          price: @product.price,
+          title: @title
+        }
+      }
+    }.to change(Product, :count).by(1)
+
+    expect(response).to redirect_to(product_url(Product.last))
+  end
+
+  it 'should show product' do
+    get :show, params: { id: @product }
+    expect(response).to have_http_status(:success)
+  end
+
+  it 'should get edit' do
+    get :edit, params: { id: @product }
+    expect(response).to have_http_status(:success)
+  end
+
+  it 'should update product' do
+    patch :update, params: {
+      id: @product,
+      product: {
+        description: @product.description,
+        image_url: @product.image_url,
+        price: @product.price,
+        title: @title
+      }
+    }
+
+    expect(response).to redirect_to(product_url(@product))
+  end
+
+  it 'should destroy product' do
+    expect {
+      delete :destroy, params: { id: @product }
+    }.to change(Product, :count).by(-1)
+
+    expect(response).to redirect_to(products_url)
   end
 end
 
