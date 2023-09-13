@@ -5,6 +5,10 @@ RSpec.describe StoreController, type: :controller do
     it 'responds with success' do
       get :index
       expect(response).to have_http_status(:success)
+      expect(page).to have_selector('nav a', minimum: 4)
+      expect(page).to have_selector('main ul li', 3)
+      expect(page).to have_selector('h2', 'Programming Ruby 1.9')
+      expect(page).to have_selector('div', /\$[,\d]+\.\d\d/)
     end
   end
 end
