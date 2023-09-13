@@ -38,6 +38,11 @@ RSpec.configure do |config|
   # instead of true.
   config.use_transactional_fixtures = true
 
+  # Add the Capybara configuration for Selenium with a headless browser here
+  config.before(:each, type: :system) do
+    driven_by :selenium, using: :headless_chrome
+  end
+
   # You can uncomment this line to turn off ActiveRecord support entirely.
   # config.use_active_record = false
 
