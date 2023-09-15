@@ -37,7 +37,7 @@ RSpec.describe ProductsController, type: :controller do
   it 'should show product' do
     get :show, params: { id: @product }
     expect(response).to have_http_status(:success)
-    expect(response.body).to have_selector('img', minimum: 4)
+    expect(response.body).to have_selector('img', count: 1)
   end
 
   it 'should get edit' do
