@@ -24,6 +24,12 @@
           <li><a href="/questions">Questions</a></li>
           <li><a href="/news">News</a></li>
           <li><a href="/contact">Contact</a></li>
+          <!-- Add a container for date and time -->
+          <li>
+            <div>
+              <%= Time.now.strftime("%A, %B %d, %Y %I:%M:%S %p") %>
+            </div>
+          </li>
         </ul>
       </nav>
 
