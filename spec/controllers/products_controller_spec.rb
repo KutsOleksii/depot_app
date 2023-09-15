@@ -11,7 +11,7 @@ RSpec.describe ProductsController, type: :controller do
   it 'should get index' do
     get :index
     expect(response).to have_http_status(:success)
-    expect(response.body).to have_selector('nav a', minimum: 2)
+    expect(response.body).to have_selector('nav a', minimum: 5)
   end
 
   it 'should get new' do
