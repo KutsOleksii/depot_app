@@ -8,8 +8,8 @@ RSpec.describe StoreController, type: :controller do
       puts "response.body = #{response.body}"
       expect(response.body).to have_selector('nav a', minimum: 4)
       expect(response.body).to have_selector('main ul li', count: 3)
-      expect(response.body).to have_selector('h2', 'Programming Ruby 1.9')
-      expect(response.body).to have_selector('div', /\$[,\d]+\.\d\d/)
+      expect(response.body).to have_selector('h2', text: 'Programming Ruby 1.9')
+      expect(response.body).to have_selector('div', text: /\$[,\d]+\.\d\d/)
     end
   end
 end
