@@ -25,7 +25,7 @@
               </p>
 
               <div class="mt-3">
-                <%= number_to_currency(product.price) %>
+                <%= number_to_currency(product.price, precision: rand(4)) %>
               </div>
             </div>
           </li>
