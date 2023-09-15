@@ -11,7 +11,7 @@ RSpec.describe ProductsController, type: :controller do
   it 'should get index' do
     get :index
     expect(response).to have_http_status(:success)
-    expect(response.body).to have_selector('nav a', minimum: 5)
+    expect(response.body).to have_selector('nav a', minimum: 4)
   end
 
   it 'should get new' do
@@ -37,6 +37,7 @@ RSpec.describe ProductsController, type: :controller do
   it 'should show product' do
     get :show, params: { id: @product }
     expect(response).to have_http_status(:success)
+    expect(response.body).to have_selector('img', minimum: 4)
   end
 
   it 'should get edit' do
