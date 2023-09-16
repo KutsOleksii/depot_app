@@ -59,7 +59,7 @@ RSpec.describe ProductsController, type: :controller do
     expect(response).to redirect_to(product_url(@product))
   end
 
-  RSpec.describe "Products", type: :request do
+  context "Products", type: :request do
     let(:product) { products(:two) }
 
     it "can't delete product in cart" do
