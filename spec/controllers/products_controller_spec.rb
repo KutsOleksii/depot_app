@@ -62,14 +62,15 @@ RSpec.describe ProductsController, type: :controller do
   RSpec.describe "Products", type: :request do
     let(:product) { products(:two) }
 
-  it "can't delete product in cart" do
-    expect {
-      delete product_path(product)
-    }.to_not change(Product, :count) # Ensure that Product.count doesn't change
-    #   delete :destroy, params: { id: @product }
-    # }.to change(Product, :count).by(0)
+    it "can't delete product in cart" do
+      expect {
+        delete product_path(product)
+      }.to_not change(Product, :count) # Ensure that Product.count doesn't change
+      #   delete :destroy, params: { id: @product }
+      # }.to change(Product, :count).by(0)
 
-    expect(response).to redirect_to(products_url)
+      expect(response).to redirect_to(products_url)
+    end
   end
 
   it 'should destroy product' do
