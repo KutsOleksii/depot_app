@@ -4,6 +4,7 @@
   <% end %>
 
   <div class="flex justify-between items-center">
+    <%= "You've visit this page #{session[:index_counter]} #{'time'.pluralize(session[:index_counter])}" %>
     <h1 class="font-bold text-4xl">Products</h1>
   </div>
 
@@ -12,9 +13,9 @@
       <tr>
         <td colspan="3">
           <div class="mt-8">
-            <%= link_to 'New product', 
-                new_product_path, 
-                class: "inline rounded-lg py-3 px-5 bg-green-600 
+            <%= link_to 'New product',
+                new_product_path,
+                class: "inline rounded-lg py-3 px-5 bg-green-600
                         text-white block font-medium" %>
           </div>
         </td>
@@ -38,13 +39,13 @@
           <td class="px-3">
             <ul>
               <li>
-                <%= link_to 'Show', 
-                            product, 
+                <%= link_to 'Show',
+                            product,
                             class: 'hover:underline' %>
               </li>
 
               <li>
-                <%= link_to 'Edit', 
+                <%= link_to 'Edit',
                             edit_product_path(product),
                             class: 'hover:underline' %>
               </li>
@@ -53,7 +54,7 @@
                 <%= link_to 'Destroy',
                             product,
                             class: 'hover:underline',
-                            data: { turbo_method: :delete, 
+                            data: { turbo_method: :delete,
                                     turbo_confirm: "Are you sure?" } %>
               </li>
             </ul>
