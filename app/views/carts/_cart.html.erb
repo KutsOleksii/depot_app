@@ -3,7 +3,7 @@
 
   <ul class="list-nonoe list-inside">
     <%cart.line_items.each do|item| %>
-      <li><%= item.quantity %> &items; <%= item.product.title %></li>
+      <li><%= item.quantity %> &times; <%= item.product.title %></li>
     <% end %>
   </ul>
 </div>
