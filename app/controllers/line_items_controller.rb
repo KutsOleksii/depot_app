@@ -25,6 +25,7 @@ class LineItemsController < ApplicationController
   def create
     product = Product.find(params[:product_id])
     @line_item = @cart.line_items.build(product: product)
+    session[:index_counter] = 0
     # @line_item = LineItem.new(line_item_params)
 
     respond_to do |format|
