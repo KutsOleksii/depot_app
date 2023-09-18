@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe "LineItems", type: :request do
+  fixtures :products
+
   let(:ruby_product) { products(:ruby) }
 
   it "creates a line_item" do
