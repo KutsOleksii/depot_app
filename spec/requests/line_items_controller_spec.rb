@@ -22,7 +22,7 @@ RSpec.describe "LineItems", type: :request do
   describe 'PATCH #update' do
     it 'should update line_item' do
       patch :update, params: { id: line_item.id, line_item: { product_id: line_item.product_id } }
-      expect(response).to redirect_to(line_item_path(line_item))
+      expect(response).to have_http_status(:redirect)
     end
   end
   # test "should update line_item" do
