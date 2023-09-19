@@ -16,7 +16,7 @@ RSpec.describe "LineItems", type: :request do
     expect(response.body).to include("1 &times; Programming Ruby 1.9")
   end
 
-  let(:line_item) { create(:line_item) }
+  let(:line_item) { line_items(:one) }
 
   describe 'PATCH #update' do
     it 'should update line_item' do
