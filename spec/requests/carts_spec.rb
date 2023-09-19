@@ -13,7 +13,7 @@ require 'rails_helper'
 # sticking to rails and rspec-rails APIs to keep things simple and stable.
 
 RSpec.describe "/carts", type: :request do
-  
+
   # This should return the minimal set of attributes required to create a valid
   # Cart. As you add validations to Cart, be sure to
   # adjust the attributes here as well.
@@ -77,12 +77,12 @@ RSpec.describe "/carts", type: :request do
         }.to change(Cart, :count).by(0)
       end
 
-    
+
       it "renders a response with 422 status (i.e. to display the 'new' template)" do
         post carts_url, params: { cart: invalid_attributes }
         expect(response).to have_http_status(:unprocessable_entity)
       end
-    
+
     end
   end
 
@@ -108,28 +108,26 @@ RSpec.describe "/carts", type: :request do
     end
 
     context "with invalid parameters" do
-    
+
       it "renders a response with 422 status (i.e. to display the 'edit' template)" do
         cart = Cart.create! valid_attributes
         patch cart_url(cart), params: { cart: invalid_attributes }
         expect(response).to have_http_status(:unprocessable_entity)
       end
-    
+
     end
   end
 
   describe "DELETE /destroy" do
     it "destroys the requested cart" do
-      cart = Cart.create! valid_attributes
+      post line_items_url, params: { product_id: products(:ruby).id }
+      cart = Cart.find(session[:cart_id])
+
       expect {
         delete cart_url(cart)
       }.to change(Cart, :count).by(-1)
-    end
 
-    it "redirects to the carts list" do
-      cart = Cart.create! valid_attributes
-      delete cart_url(cart)
-      expect(response).to redirect_to(carts_url)
+      expect(response).to redirect_to(store_index_url)
     end
   end
 end
