@@ -12,8 +12,8 @@ RSpec.describe "LineItems", type: :request do
 
     follow_redirect!
 
-    expect(response.body).to include('Your Pragmatic Cart')
-    expect(response.body).to include("1 &times; Programming Ruby 1.9")
+    expect(response.body).to have_selector('h2', text: "Your Cart")
+    expect(response.body).to have_selector('td', text: "Programming Ruby 1.9")
   end
 
   let(:cart) { carts(:one) }
