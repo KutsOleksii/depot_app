@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "LineItems", type: :request do
-  fixtures :products, :line_items
+  fixtures :products, :line_items, :carts
 
   let(:ruby_product) { products(:ruby) }
 
@@ -16,6 +16,7 @@ RSpec.describe "LineItems", type: :request do
     expect(response.body).to include("1 &times; Programming Ruby 1.9")
   end
 
+  let(:cart) { carts(:one) }
   let(:line_item) { line_items(:one) }
 
   describe 'PATCH #update' do
