@@ -2,7 +2,7 @@ class Cart < ApplicationRecord
   has_many :line_items, dependent: :destroy
 
   def add_product(product)
-    pp product
+    pp line_items
     current_item = line_items.find_by(product_id: product.id)
     if current_item
       current_item.quantity += 1
