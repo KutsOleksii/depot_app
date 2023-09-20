@@ -1,9 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe "line_items/edit", type: :view do
+  fixtures :products, :line_items, :carts
+  # let(:ruby_product) { products(:ruby) }
+
   let(:line_item) {
     LineItem.create!(
-      product: Product.create!(),
+      product: products(:ruby),
       cart: Cart.create!()
     )
   }
