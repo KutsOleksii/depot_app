@@ -139,7 +139,8 @@ RSpec.describe "/carts", type: :request do
       cart = carts(:one) # Replace with the actual cart name from your fixtures
       product = products(:ruby) # Replace with the actual product name from your fixtures
       cart.add_product(product)
-      cart.add_product(products(:one))
+      product = products(:one) # Replace with the actual product name from your fixtures
+      cart.add_product(product)
 
       expect(cart.line_items.count).to eq(2)
     end
