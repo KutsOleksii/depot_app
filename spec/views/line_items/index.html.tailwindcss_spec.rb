@@ -9,10 +9,10 @@ RSpec.describe "line_items/index", type: :view do
         product: products(:ruby),
         cart: carts(:one)
       ),
-      LineItem.create!(
-        product: products(:one),
-        cart: carts(:one)
-      )
+      # LineItem.create!(
+      #   product: nil,
+      #   cart: nil
+      # )
     ])
   end
 
