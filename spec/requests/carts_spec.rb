@@ -137,13 +137,13 @@ RSpec.describe "/carts", type: :request do
 
     it "adds a unique product to the cart" do
       cart = carts(:one) # Replace with the actual cart name from your fixtures
-      pp cart.line_items
+      pp cart.line_items, cart.line_items.count
       product_ruby = products(:ruby) # Replace with the actual product name from your fixtures
       cart.add_product(product_ruby)
-      pp cart.line_items
+      pp cart.line_items, cart.line_items.count
       product_one = products(:one) # Replace with the actual product name from your fixtures
       cart.add_product(product_one)
-      pp cart.line_items
+      pp cart.line_items, cart.line_items.count
 
       expect(cart.line_items.count).to eq(2)
     end
