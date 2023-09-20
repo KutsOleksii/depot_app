@@ -7,7 +7,7 @@ RSpec.describe "line_items/edit", type: :view do
   let(:line_item) {
     LineItem.create!(
       product: products(:ruby),
-      cart: Cart.create!()
+      cart: carts(:one)
     )
   }
 
