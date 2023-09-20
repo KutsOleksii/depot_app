@@ -1,10 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe "line_items/show", type: :view do
+  fixtures :products, :line_items, :carts
+
   before(:each) do
     assign(:line_item, LineItem.create!(
-      product: nil,
-      cart: nil
+      product: products(:ruby),
+      cart: carts(:one)
     ))
   end
 

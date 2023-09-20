@@ -1,15 +1,17 @@
 require 'rails_helper'
 
 RSpec.describe "line_items/index", type: :view do
+  fixtures :products, :line_items, :carts
+
   before(:each) do
     assign(:line_items, [
       LineItem.create!(
-        product: nil,
-        cart: nil
+        product: products(:ruby),
+        cart: carts(:one)
       ),
       LineItem.create!(
-        product: nil,
-        cart: nil
+        product: products(:ruby),
+        cart: carts(:one)
       )
     ])
   end
