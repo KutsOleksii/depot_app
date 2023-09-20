@@ -138,7 +138,7 @@ RSpec.describe "/carts", type: :request do
     it "adds a unique product to the cart" do
       pp cart = carts(:one) # Replace with the actual cart name from your fixtures
       product_ruby = products(:ruby) # Replace with the actual product name from your fixtures
-      cart.add_product([product_ruby, product_one])
+      cart.add_product(product_ruby)
       pp cart
       product_one = products(:one) # Replace with the actual product name from your fixtures
       cart.add_product(product_one)
