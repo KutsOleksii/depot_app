@@ -7,7 +7,7 @@ class Cart < ApplicationRecord
       current_item.quantity += 1
       Rails.logger.debug("Incremented Quantity: #{current_item.quantity}")
     else
-      current_item = line_items.build(product_id: product.id)
+      current_item = line_items.build(product_id: product.id, price: product.price)
       Rails.logger.debug("New Line Item Created")
     end
     current_item
