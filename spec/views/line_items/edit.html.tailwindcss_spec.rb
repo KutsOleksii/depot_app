@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.describe "line_items/edit", type: :view do
   let(:line_item) {
     LineItem.create!(
-      product: nil,
-      cart: nil
+      product: Product.create!(),
+      cart: Cart.create!()
     )
   }
 
