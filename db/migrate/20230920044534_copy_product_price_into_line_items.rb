@@ -14,5 +14,6 @@ class CopyProductPriceIntoLineItems < ActiveRecord::Migration[7.0]
     LineItem.all.each do |line_item|
       line_item.price = nil
       line_item.save
+    end
   end
 end
