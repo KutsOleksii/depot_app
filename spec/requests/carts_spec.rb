@@ -13,6 +13,7 @@ require 'rails_helper'
 # sticking to rails and rspec-rails APIs to keep things simple and stable.
 
 RSpec.describe "/carts", type: :request do
+  fixtures :products, :line_items, :carts
 
   # This should return the minimal set of attributes required to create a valid
   # Cart. As you add validations to Cart, be sure to
