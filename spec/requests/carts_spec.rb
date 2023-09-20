@@ -152,7 +152,9 @@ RSpec.describe "/carts", type: :request do
       cart = carts(:one) # Replace with the actual cart name from your fixtures
 
       cart.add_product(product)
+      cart.save!
       cart.add_product(product)
+      cart.save!
       pp cart.line_items
 
       # Assert that there are two line items for the same product in the cart
