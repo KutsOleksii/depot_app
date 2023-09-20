@@ -11,7 +11,7 @@ RSpec.describe "line_items/index", type: :view do
       ),
       LineItem.create!(
         product: products(:ruby),
-        cart: carts(:one)
+        cart: carts(:two)
       )
     ])
   end
