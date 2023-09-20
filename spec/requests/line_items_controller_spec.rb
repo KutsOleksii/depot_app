@@ -13,7 +13,7 @@ RSpec.describe "LineItems", type: :request do
     follow_redirect!
 
     expect(response.body).to include('>Your Cart</h2>')#have_selector('h2', text: "Your Cart")
-    expect(response.body).to have_css("td", text: "Programming Ruby 1.9")
+    expect(response.body).to include('>Programming Ruby 1.9</td>")
   end
 
   let(:cart) { carts(:one) }
