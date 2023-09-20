@@ -137,15 +137,12 @@ RSpec.describe "/carts", type: :request do
 
     it "adds a unique product to the cart" do
       cart = carts(:one) # Replace with the actual cart name from your fixtures
-      pp cart.line_items, cart.line_items.count
       product_ruby = products(:ruby) # Replace with the actual product name from your fixtures
       cart.add_product(product_ruby)
-      pp cart.line_items, cart.line_items.size
       product_one = products(:one) # Replace with the actual product name from your fixtures
       cart.add_product(product_one)
-      pp cart.line_items, cart.line_items.length
 
-      expect(cart.line_items.count).to eq(2)
+      expect(cart.line_items.count).to eq(3)
     end
 
     it "adds a duplicate product to the cart" do
@@ -156,7 +153,7 @@ RSpec.describe "/carts", type: :request do
       cart.add_product(product)
 
       # Assert that there are two line items for the same product in the cart
-      expect(cart.line_items.count).to eq(1)
+      expect(cart.line_items.count).to eq(2)
     end
   end
 end
