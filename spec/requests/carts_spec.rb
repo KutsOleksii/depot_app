@@ -132,7 +132,7 @@ RSpec.describe "/carts", type: :request do
     end
   end
 
-  RSpec.describe Cart, type: :model do
+  describe Cart, type: :model do
     fixtures :products, :carts
 
     it "adds a unique product to the cart" do
