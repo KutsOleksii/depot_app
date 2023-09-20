@@ -158,7 +158,7 @@ RSpec.describe "/carts", type: :request do
       pp cart.line_items
 
       # Assert that there are two line items for the same product in the cart
-      expect(cart.line_items.size).to eq(2)
+      expect(cart.line_items.count).to eq(2)
     end
   end
 end
