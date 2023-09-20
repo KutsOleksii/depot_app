@@ -12,7 +12,7 @@ RSpec.describe "LineItems", type: :request do
 
     follow_redirect!
 
-    Rails.logger.debug(response.body)
+    Rails.logger.debug(response.body.to_s)
     expect(response.body).to have_selector('h2', text: "Your Cart")
     expect(response.body).to have_selector('td', text: "Programming Ruby 1.9")
   end
