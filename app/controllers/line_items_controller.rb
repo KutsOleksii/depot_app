@@ -35,7 +35,7 @@ class LineItemsController < ApplicationController
         format.turbo_stream do
           render turbo_stream: turbo_stream.replace(
             :cart,
-            partial: 'layout/cart',
+            partial: 'layouts/cart',
             locals: { cart: @cart }
           )
         end
