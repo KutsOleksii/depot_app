@@ -25,7 +25,6 @@ class LineItemsController < ApplicationController
   def create
     product = Product.find(params[:product_id])
     @line_item = @cart.add_product(product)
-    Rails.logger.debug("@line_item.quantity: #{@line_item.quantity}")
     # @line_item = @cart.line_items.build(product: product)
 
     session[:index_counter] = 0
