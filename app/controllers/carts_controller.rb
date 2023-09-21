@@ -1,6 +1,7 @@
 class CartsController < ApplicationController
   before_action :set_cart, only: %i[ show edit update destroy ]
   rescue_from ActiveRecord::RecordNotFound, with: :invalid_cart
+  pp session
 
   # GET /carts or /carts.json
   def index
@@ -64,7 +65,6 @@ class CartsController < ApplicationController
     def set_cart
       @cart = Cart.find(params[:id])
       pp @cart
-      pp session
       # raise ActiveRecord::RecordNotFound unless @cart.id.eql?(session[:cart_id])
     end
 
