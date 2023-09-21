@@ -9,7 +9,6 @@ class CartsController < ApplicationController
 
   # GET /carts/1 or /carts/1.json
   def show
-    pp session
   end
 
   # GET /carts/new
@@ -64,7 +63,12 @@ class CartsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_cart
       @cart = Cart.find(params[:id])
-      pp @cart
+
+      unless @cart.id == session[:cart_id]
+        logger.error "Attempt to access invalid cart #{params[:id]}"
+        redirect_to store_index_url, notice: "Invalid cart"
+      end
+      # pp @cart
       # raise ActiveRecord::RecordNotFound unless @cart.id.eql?(session[:cart_id])
     end
 
