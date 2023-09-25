@@ -11,9 +11,6 @@ module Depot
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
     config.generators.test_framework = :rspec
-    config.to_prepare do
-      ActionController::Base.include Turbolinks::Controller
-    end
 
     # Configuration for the application, engines, and railties goes here.
     #
