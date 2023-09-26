@@ -16,6 +16,16 @@ RSpec.describe "LineItems", type: :request do
     expect(response.body).to include('Programming Ruby 1.9')
   end
 
+  it "should create a line item via turbo-stream" do
+    expect {
+      post line_items_path, params: { product_id: products(:ruby).id }, headers: { "HTTP_ACCEPT" => "text/vnd.turbo-stream.html" }
+    }.to change(LineItem, :count).by(1)
+
+    expect(response).to have_http_status(:success)
+    expect(response.body).to match(/<tr class="line-item-highlight">/)
+  end
+
+
   let(:cart) { carts(:one) }
   let(:line_item) { line_items(:one) }
 
