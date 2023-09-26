@@ -1,6 +1,4 @@
 <% if cart and not cart.line_items.empty? %>
-  <% Rails.logger.debug("______________________WE ARE HERE in IF section______________________") %>
-  <% pp cart.line_items %>
   <div id="cart" class="bg-white rounded p-2">
     <%= render cart %>
   </div>
