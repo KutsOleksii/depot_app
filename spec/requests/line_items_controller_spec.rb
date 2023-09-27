@@ -18,7 +18,7 @@ RSpec.describe "LineItems", type: :request do
 
   it "should create a line item via turbo-stream" do
     expect {
-      post line_items_path, params: { product_id: products(:ruby).id }, headers: { "HTTP_ACCEPT" => "text/vnd.turbo-stream.html" }
+      post line_items_path, params: { product_id: products(:ruby).id }, as: :turbo_stream }
     }.to change(LineItem, :count).by(1)
 
     expect(response).to have_http_status(:success)
