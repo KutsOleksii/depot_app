@@ -58,7 +58,7 @@ class CartsController < ApplicationController
         render turbo_stream: turbo_stream.replace(
           :cart,
           partial: 'layouts/cart',
-          locals: { cart: @cart,  notice: "Your cart is currently empty" }
+          locals: { cart: @cart }
         )
       end
       format.html { redirect_to store_index_url, notice: "Your cart is currently empty" }
