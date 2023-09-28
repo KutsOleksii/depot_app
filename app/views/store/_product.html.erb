@@ -1,9 +1,8 @@
 <%= turbo_frame_tag(dom_id(product)) do %>
   <li class='flex mb-6'>
-    <%= link_to line_items_path(product_id: product), method: :post do %>
-      <%= image_tag(product.image_url,
-                    class: 'object-contain w-40 h-48 shadow mr-6') %>
-    <% end %>
+    <%= image_tag(product.image_url,
+                  class: 'object-contain w-40 h-48 shadow mr-6'),
+                  data: { action: 'click->line-items#create', product_id: product.id }) %>
     <div>
       <h2 class="font-bold text-lg mb-3"><%= product.title %></h2>
 
