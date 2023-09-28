@@ -4,9 +4,9 @@ Rails.application.routes.draw do
   root 'store#index', as: 'store_index'
   resources :products
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-  resources :carts do
+  resources :line_items do
     member do
-      put 'decrement', to: 'carts#decrement'
+      put 'decrement', to: 'line_items#decrement'
     end
   end
 
