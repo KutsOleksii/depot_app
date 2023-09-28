@@ -76,13 +76,13 @@ class LineItemsController < ApplicationController
     end
 
     respond_to do |format|
-      # format.turbo_stream do
-      #   render turbo_stream: turbo_stream.replace(
-      #     :cart,
-      #     partial: 'layouts/cart',
-      #     locals: { cart: @cart }
-      #   )
-      # end
+      format.turbo_stream do
+        render turbo_stream: turbo_stream.replace(
+          :cart,
+          partial: 'layouts/cart',
+          locals: { cart: @cart }
+        )
+      end
       format.html { redirect_to store_index_url, notice: "Your item was decremented" }
       format.json { head :no_content }
     end
