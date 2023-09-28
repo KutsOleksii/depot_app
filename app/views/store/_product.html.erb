@@ -2,7 +2,7 @@
   <li class='flex mb-6'>
     <%= link_to line_items_path(product_id: product), data: {turbo_method: :post} do %>
       <%= image_tag(product.image_url,
-                    class: 'object-contain w-100 h-100 shadow mr-6') %>
+                    class: 'object-contain w-40 h-100 shadow mr-6') %>
     <% end %>
     <div>
       <h2 class="font-bold text-lg mb-3"><%= product.title %></h2>
