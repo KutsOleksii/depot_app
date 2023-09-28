@@ -76,8 +76,8 @@ class LineItemsController < ApplicationController
     end
 
     respond_to do |format|
+      pp @cart
       format.turbo_stream do
-        pp @cart
         render turbo_stream: turbo_stream.replace(
           :cart,
           partial: 'layouts/cart',
