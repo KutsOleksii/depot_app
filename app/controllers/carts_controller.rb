@@ -75,7 +75,7 @@ class CartsController < ApplicationController
       @item.destroy
     end
 
-    # respond_to do |format|
+    respond_to do |format|
     #   format.turbo_stream do
     #     render turbo_stream: turbo_stream.replace(
     #       :cart,
