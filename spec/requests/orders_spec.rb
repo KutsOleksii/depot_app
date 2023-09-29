@@ -56,7 +56,7 @@ RSpec.describe "/orders", type: :request do
     end
   end
 
-  RSpec.describe "Orders", type: :request do
+  describe "Orders" do
     let(:ruby_product) { products(:ruby) }
 
     it "requires item in cart" do
